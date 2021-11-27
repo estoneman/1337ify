@@ -14,6 +14,7 @@ Compile source code according to your C compiler. I use gcc to compile, however 
 cd c
 make
 ```
+### Run - 
 
 ```bash
 chmod +x gen-passwd.sh
