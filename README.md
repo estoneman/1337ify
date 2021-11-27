@@ -8,19 +8,19 @@ Clone the repository
 ```bash
 git clone https://github.com/estoneman/1337ify.git
 ```
-### C - 
+### Compile - 
+Compile source code according to your C compiler. I use gcc to compile, however you may replace with a compiler of your choosing
 ```bash
-make && ./translate <word to be translated>
+cd c
+make
 ```
-### Python - 
-Shell way
+
 ```bash
-chmod +x write.py
-./write.py
+chmod +x gen-passwd.sh
+./gen-passwd.sh <seed>
 ```
-Python way
-```bash
-python write.py
-```
+
+* seed is a string that you would like to obfuscate according to the service you are creating a password for
+* e.g. GitHub --> seed = github
 
 > Copyright Ethan Stoneman
