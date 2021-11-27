@@ -1,7 +1,7 @@
 # 1337ify
 
 ## What is 1337ify?
-1337ify is an ongoing project to translate English plaintext into leetspeak
+1337ify is an ongoing project to generate a password given a seed. As of this version, it utilizes openssl's SHA3-512 digest. More support to come...
 
 ## How to run
 Clone the repository
