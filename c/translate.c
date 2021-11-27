@@ -5,7 +5,8 @@
 
 #define LEET_LEN 123 // to include null terminator
 
-int readfile(char* buf, char* fn, char* perm) {
+int readfile(char* buf, char* fn, char* perm)
+{
 
 	FILE* fp;
 	fp = fopen(fn, perm);
@@ -31,16 +32,19 @@ int main(int argc, char** argv)
 	strncat(arg, argv[1], strlen(argv[1]));
 
 	char* leet_chars = (char*) malloc(LEET_LEN);
-	readfile(leet_chars, "../leet.txt", "r");
+	readfile(leet_chars, "/Users/estoneman/projects/fun/1337ify/leet.txt", "r");
 
 	while (*arg) {
-		strncat(translated, &leet_chars[ *arg++ % LEET_LEN ], 1);
+		char next_char = leet_chars[ *arg % LEET_LEN ];
+		if (next_char == '-') {
+			strncat(translated, &(*arg), 1);
+		}
+		else
+			strncat(translated, &next_char, 1);
+		*arg++;
 	}
 
-	arg -= strlen(translated);
-
-	printf("Non-1337:\t\t%s\n", arg);
-	printf("1337 translated:\t%s\n", translated);
+	printf("%s", translated);
 
 	free(translated);
 	free(leet_chars);
