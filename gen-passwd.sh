@@ -1,9 +1,16 @@
-#!/bin/bash
+#!/bin/zsh
 
-if [ -z "$1" ] || [ "$#" -gt 1 ]
-then
-	echo "Usage: $0 <word-to-be-translated>"
-	exit 1
-fi
+SEED="$1"
+LEN_ARGS="$#"
 
-c/translate "$1" | openssl dgst -sha3-512 | cut -d ' ' -f 2 | tail -c 50 | head -c 12 | base64
+# test if command line argument is invalid (exists and size)
+#if [ -z "$SEED" ] || [ "$LEN_ARGS" -gt 1 ]
+#then
+#	echo "Usage: gen-passwd.sh <word-to-be-translated>"
+#	exit 1
+#fi
+
+OUT=~/Programming/projects/fun/1337ify/build/translate
+
+PASSWD=$($OUT "$SEED" | openssl dgst -sha3-512 | cut -d ' ' -f 2 | base64 | tail -c 50 | head -c 12 ; echo)
+echo "Your new password: "$PASSWD

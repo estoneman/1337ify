@@ -32,16 +32,16 @@ int main(int argc, char** argv)
 	strncat(arg, argv[1], strlen(argv[1]));
 
 	char* leet_chars = (char*) malloc(LEET_LEN);
-	readfile(leet_chars, "/Users/estoneman/projects/fun/1337ify/leet.txt", "r");
+	readfile(leet_chars, "/Users/estoneman/Programming/projects/fun/1337ify/leet.txt", "r");
 
-	while (*arg) {
-		char next_char = leet_chars[ *arg % LEET_LEN ];
+	char letter;
+	while ( (letter = *arg++) ) {
+		char next_char = leet_chars[ letter % LEET_LEN ];
 		if (next_char == '-') {
-			strncat(translated, &(*arg), 1);
+			strncat(translated, &letter, 1);
 		}
 		else
 			strncat(translated, &next_char, 1);
-		*arg++;
 	}
 
 	printf("%s", translated);
@@ -49,5 +49,5 @@ int main(int argc, char** argv)
 	free(translated);
 	free(leet_chars);
 
-	return 1;
+	return 0;
 }
